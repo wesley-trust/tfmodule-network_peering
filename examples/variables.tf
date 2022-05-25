@@ -13,7 +13,7 @@ variable "service_environment" {
 
 variable "service_location" {
   description = "The production resource locations to deploy"
-  type        = list(string)
+  type        = list(any)
 }
 
 variable "service_deployment" {
@@ -24,10 +24,10 @@ variable "service_deployment" {
 # Required resource variables
 variable "service_network_spoke" {
   description = "Resource inputs for peering"
-  type = map(any)
+  type        = map(any)
 }
 
 variable "service_network_hub" {
   description = "Resource inputs for peering"
-  type = map(any)
+  type        = map(any)
 }
