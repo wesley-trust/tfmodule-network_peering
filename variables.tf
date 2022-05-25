@@ -6,8 +6,13 @@ variable "service_environment" {
 
 # Required resource variables
 variable "resource_network_peer" {
-  description = "Resource outputs for peering"
-  type = map(any)
+  description = "Resource network outputs for peering"
+  type = string
+}
+
+variable "resource_group_peer" {
+  description = "Resource group outputs for peering"
+  type = string
 }
 
 variable "resource_network_peer_role" {
