@@ -26,8 +26,7 @@ func TestLocalNetworkPeering(t *testing.T) {
 		// Variables to pass to the Terraform code using -var options
 		Vars: map[string]interface{}{
 			"service_deployment": uniqueID,
-			"resource_instance_count": 1,
-			"service_location": locations,
+			"service_location":   locations,
 		},
 	})
 
@@ -47,10 +46,10 @@ func TestLocalNetworkPeering(t *testing.T) {
 
 		// Variables to pass to the Terraform code using -var options
 		Vars: map[string]interface{}{
-			"service_deployment": uniqueID,
-			"service_location": locations,
-			"virtual_machine_spoke": virtualMachineSpoke,
-			"virtual_machine_hub": virtualMachineHub,
+			"service_deployment":    uniqueID,
+			"service_location":      locations,
+			"service_network_spoke": serviceNetworkSpoke,
+			"service_network_hub":   serviceNetworkHub,
 		},
 	})
 
