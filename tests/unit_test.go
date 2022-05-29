@@ -10,12 +10,6 @@ import (
 func TestValidateNetworkPeering(t *testing.T) {
 	t.Parallel()
 
-	// Generate a random ID to prevent a naming conflict
-	uniqueID := random.UniqueId()
-
-	// Define variables
-	locations := []string{"UK South"}
-
 	// Enable retryable error
 	terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
 
