@@ -15,7 +15,7 @@ module "service_network_spoke" {
   resource_location       = module.resource_group_spoke[each.value].location
   resource_group_name     = module.resource_group_spoke[each.value].name
   resource_environment    = var.service_environment
-  resource_address_space  = lookup(var.resource_address_space, each.value, null)
+  resource_address_space  = lookup(lookup(var.resource_address_space, "Spoke", null), each.value, null)
   resource_network_role   = "spoke"
 }
 
@@ -36,6 +36,6 @@ module "service_network_hub" {
   resource_location       = module.resource_group_hub[each.value].location
   resource_group_name     = module.resource_group_hub[each.value].name
   resource_environment    = var.service_environment
-  resource_address_space  = lookup(var.resource_address_space, each.value, null)
+  resource_address_space  = lookup(lookup(var.resource_address_space, "Hub", null), each.value, null)
   resource_network_role   = "hub"
 }

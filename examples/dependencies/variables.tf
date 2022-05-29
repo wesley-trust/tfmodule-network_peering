@@ -27,14 +27,20 @@ variable "service_deployment" {
 
 variable "resource_address_space" {
   description = "Desired address space for the provisioned resources"
-  type        = map(string)
+  type        = map(any)
   default = {
-    "UK South"         = "10.0.2.0/24"
-    "North Central US" = "10.6.2.0/24"
+    "Spoke" = {
+      "UK South"         = "10.0.2.0/24"
+      "North Central US" = "10.6.2.0/24"
+    }
+    "Hub" = {
+      "UK South"         = "10.0.0.0/24"
+      "North Central US" = "10.6.0.0/24"
+    }
   }
 }
 
-variable "resource_dns_servers" {
+/* variable "resource_dns_servers" {
   description = "Desired DNS servers for the provisioned resources"
   type        = map(any)
   default = {
@@ -48,4 +54,4 @@ variable "resource_dns_servers" {
       "10.6.2.5"
     ]
   }
-}
+} */
