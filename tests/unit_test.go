@@ -30,8 +30,11 @@ func TestPlanNetworkPeering(t *testing.T) {
 		},
 	})
 
-	// Run `terraform init` and `terraform plan`. Fail the test if there are any errors.
-	terraform.InitAndPlan(t, terraformDependencyOptions)
+	// At the end of the test, run `terraform destroy` to clean up any resources that were created
+	defer terraform.Destroy(t, terraformDependencyOptions)
+
+	// Run `terraform init` and `terraform apply`. Fail the test if there are any errors.
+	terraform.InitAndApply(t, terraformDependencyOptions)
 
 	// Plan module
 	// Enable retryable error
