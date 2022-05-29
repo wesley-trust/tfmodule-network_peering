@@ -13,7 +13,7 @@ variable "service_environment" {
 
 variable "service_location" {
   description = "The production resource locations to deploy"
-  type        = list(any)
+  type        = list(string)
 }
 
 variable "service_deployment" {
@@ -21,13 +21,27 @@ variable "service_deployment" {
   type        = string
 }
 
-# Required resource variables
-variable "service_network_spoke" {
-  description = "Resource inputs for peering"
-  type        = map(any)
+variable "resource_address_space" {
+  description = "Desired address space for the provisioned resources"
+  type        = map(string)
+  default = {
+    "UK South"         = "10.0.2.0/24"
+    "North Central US" = "10.6.2.0/24"
+  }
 }
 
-variable "service_network_hub" {
-  description = "Resource inputs for peering"
+variable "resource_dns_servers" {
+  description = "Desired DNS servers for the provisioned resources"
   type        = map(any)
+  default = {
+    "UK South" = [
+      "10.0.2.4",
+      "10.0.2.5"
+    ]
+
+    "North Central US" = [
+      "10.6.2.4",
+      "10.6.2.5"
+    ]
+  }
 }
