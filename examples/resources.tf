@@ -1,5 +1,5 @@
 module "network_peering_spoke" {
-  for_each                   = var.service_location
+  for_each                   = toset(var.service_location)
   source                     = "../"
   service_environment        = var.service_environment
   resource_network_peer      = var.service_network_hub[each.value].network_name
@@ -8,7 +8,7 @@ module "network_peering_spoke" {
 }
 
 module "network_peering_hub" {
-  for_each                   = var.service_location
+  for_each                   = toset(var.service_location)
   source                     = "../"
   service_environment        = var.service_environment
   resource_network_peer      = var.service_network_hub[each.value].network_name
