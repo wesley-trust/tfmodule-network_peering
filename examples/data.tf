@@ -1,4 +1,4 @@
-data "terraform_remote_state" "outputs" {
+data "terraform_remote_state" "dependencies" {
   backend = "local"
 
   config = {
