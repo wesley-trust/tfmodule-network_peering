@@ -7,7 +7,7 @@ import (
 	"github.com/gruntwork-io/terratest/modules/terraform"
 )
 
-func TestLocalNetworkPeering(t *testing.T) {
+func TestApplyNetworkPeering(t *testing.T) {
 	t.Parallel()
 
 	// Generate a random ID to prevent a naming conflict
@@ -48,7 +48,7 @@ func TestLocalNetworkPeering(t *testing.T) {
 		TerraformDir: "../examples/",
 
 		// Variables to pass to the Terraform code using -var options
-		Vars: map[string]interface{}{
+		Vars: map[]interface{}{
 			"service_deployment":    uniqueID,
 			"service_location":      locations,
 			"service_network_spoke": serviceNetworkSpoke,
