@@ -12,16 +12,24 @@ output "service_network_hub" {
   }
 } */
 
-output "service_network_spoke" {
+/* output "service_network_spoke" {
   value = {
-    "network_name"        = module.service_network_spoke[*].network_name
-    "resource_group_name" = module.resource_group_spoke[*].name
+    "networkName"       = module.service_network_spoke[*].network_name
+    "resourceGroupName" = module.service_network_spoke[*].resource_group_name
   }
 }
 
 output "service_network_hub" {
   value = {
-    "network_name"        = module.service_network_hub[*].network_name
-    "resource_group_name" = module.resource_group_hub[*].name
+    "networkName"       = module.service_network_hub[*].network_name
+    "resourceGroupName" = module.service_network_hub[*].resource_group_name
   }
+} */
+
+output "service_network_spoke" {
+  value = module.service_network_spoke[*]
+}
+
+output "service_network_hub" {
+  value = module.service_network_hub[*]
 }
