@@ -7,7 +7,7 @@ import (
 	"github.com/gruntwork-io/terratest/modules/terraform"
 )
 
-/* func TestApplyNetworkPeering(t *testing.T) {
+func TestApplyNetworkPeering(t *testing.T) {
 	t.Parallel()
 
 	// Generate a random ID to prevent a naming conflict
@@ -36,10 +36,6 @@ import (
 	// Run `terraform init` and `terraform apply`. Fail the test if there are any errors.
 	terraform.InitAndApply(t, terraformDependencyOptions)
 
-	// Define outputs
-	serviceNetworkSpoke := terraform.OutputMapOfObjects(t, terraformDependencyOptions, "service_network_spoke")
-	serviceNetworkHub := terraform.OutputMapOfObjects(t, terraformDependencyOptions, "service_network_hub")
-
 	// Deploy module
 	// Enable retryable error
 	terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
@@ -51,8 +47,6 @@ import (
 		Vars: map[string]interface{}{
 			"service_deployment":    uniqueID,
 			"service_location":      locations,
-			"service_network_spoke": serviceNetworkSpoke,
-			"service_network_hub":   serviceNetworkHub,
 		},
 	})
 
@@ -61,9 +55,9 @@ import (
 
 	// Run `terraform init` and `terraform apply`. Fail the test if there are any errors.
 	terraform.InitAndApply(t, terraformOptions)
-} */
+}
 
-func TestApplyNetworkPeering(t *testing.T) {
+/* func TestApplyNetworkPeering(t *testing.T) {
 	t.Parallel()
 
 	// Generate a random ID to prevent a naming conflict
@@ -90,4 +84,4 @@ func TestApplyNetworkPeering(t *testing.T) {
 
 	// Run `terraform init` and `terraform apply`. Fail the test if there are any errors.
 	terraform.InitAndApply(t, terraformOptions)
-}
+} */
