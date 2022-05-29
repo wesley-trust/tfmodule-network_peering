@@ -48,7 +48,7 @@ func TestApplyNetworkPeering(t *testing.T) {
 		TerraformDir: "../examples/",
 
 		// Variables to pass to the Terraform code using -var options
-		Vars: map[]interface{}{
+		Vars: map[string]interface{}{
 			"service_deployment":    uniqueID,
 			"service_location":      locations,
 			"service_network_spoke": serviceNetworkSpoke,

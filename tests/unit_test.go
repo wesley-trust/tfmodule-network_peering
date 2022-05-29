@@ -21,8 +21,6 @@ func TestValidateNetworkPeering(t *testing.T) {
 
 		// The path to where the Terraform code is located
 		TerraformDir: "../examples/",
-
-		},
 	})
 
 	// Run `terraform init` and `terraform validate`. Fail the test if there are any errors.
