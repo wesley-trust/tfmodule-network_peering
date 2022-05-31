@@ -7,8 +7,33 @@ import (
 	"github.com/gruntwork-io/terratest/modules/terraform"
 )
 
-func TestPlanNetworkPeering_Dependencies(t *testing.T) {
-	t.Parallel()
+func TestValidateNetworkPeering(t *testing.T) {
+
+	// Generate a random ID to prevent a naming conflict
+	uniqueID := random.UniqueId()
+
+	// Define variables
+	locations := []string{"UK South"}
+
+	// Plan module
+	// Enable retryable error
+	terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
+
+		// The path to where the Terraform code is located
+		TerraformDir: "../examples/",
+
+		// Variables to pass to the Terraform code using -var options
+		Vars: map[string]interface{}{
+			"service_deployment":    uniqueID,
+			"service_location":      locations,
+		},
+	})
+
+	// Run `terraform init` and `terraform validate`. Fail the test if there are any errors.
+	terraform.InitAndValidate(t, terraformOptions)
+}
+
+func TestPlanNetworkPeering_ApplyDependencies(t *testing.T) {
 
 	// Generate a random ID to prevent a naming conflict
 	uniqueID := random.UniqueId()
