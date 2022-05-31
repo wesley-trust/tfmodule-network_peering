@@ -7,7 +7,7 @@ import (
 	"github.com/gruntwork-io/terratest/modules/terraform"
 )
 
-func TestPlanNetworkPeering(t *testing.T) {
+func TestPlanNetworkPeering_Dependencies(t *testing.T) {
 	t.Parallel()
 
 	// Generate a random ID to prevent a naming conflict
