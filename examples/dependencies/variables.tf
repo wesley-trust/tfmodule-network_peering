@@ -39,19 +39,3 @@ variable "resource_address_space" {
     }
   }
 }
-
-/* variable "resource_dns_servers" {
-  description = "Desired DNS servers for the provisioned resources"
-  type        = map(any)
-  default = {
-    "UK South" = [
-      "10.0.2.4",
-      "10.0.2.5"
-    ]
-
-    "North Central US" = [
-      "10.6.2.4",
-      "10.6.2.5"
-    ]
-  }
-} */
