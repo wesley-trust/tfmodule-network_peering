@@ -7,7 +7,7 @@ import (
 	"github.com/gruntwork-io/terratest/modules/terraform"
 )
 
-/* func TestApplyNetworkPeering_Local(t *testing.T) {
+func TestApplyNetworkPeering_Local(t *testing.T) {
 	// Do not run tests in parallel, to correctly test local and global peering
 	//t.Parallel()
 
@@ -56,7 +56,7 @@ import (
 
 	// Run `terraform init` and `terraform apply`. Fail the test if there are any errors.
 	terraform.InitAndApply(t, terraformOptions)
-} */
+}
 
 func TestApplyNetworkPeering_Local_Global(t *testing.T) {
 	// Do not run tests in parallel, to correctly test local and global peering
