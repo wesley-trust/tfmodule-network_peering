@@ -46,12 +46,15 @@ func TestApplyNetworkPeering_Local(t *testing.T) {
 
 		// Variables to pass to the Terraform code using -var options
 		Vars: map[string]interface{}{
-			"service_deployment":    uniqueID,
-			"service_location":      locations,
+			"service_deployment": uniqueID,
+			"service_location":   locations,
 		},
 	})
 
 	// At the end of the test, run `terraform destroy` to clean up any resources that were created
+	defer terraform.Destroy(t, terraformOptions)
+
+	// At the end of the test, run `terraform destroy` again, in case failures leave orphaned resources
 	defer terraform.Destroy(t, terraformOptions)
 
 	// Run `terraform init` and `terraform apply`. Fail the test if there are any errors.
@@ -66,7 +69,7 @@ func TestApplyNetworkPeering_Local_Global(t *testing.T) {
 	uniqueID := random.UniqueId()
 
 	// Define variables
-	locations := []string{"UK South","North Central US"}
+	locations := []string{"UK South", "North Central US"}
 
 	// Deploy dependencies
 	// Enable retryable error
@@ -97,12 +100,15 @@ func TestApplyNetworkPeering_Local_Global(t *testing.T) {
 
 		// Variables to pass to the Terraform code using -var options
 		Vars: map[string]interface{}{
-			"service_deployment":    uniqueID,
-			"service_location":      locations,
+			"service_deployment": uniqueID,
+			"service_location":   locations,
 		},
 	})
 
 	// At the end of the test, run `terraform destroy` to clean up any resources that were created
+	defer terraform.Destroy(t, terraformOptions)
+
+	// At the end of the test, run `terraform destroy` again, in case failures leave orphaned resources
 	defer terraform.Destroy(t, terraformOptions)
 
 	// Run `terraform init` and `terraform apply`. Fail the test if there are any errors.
