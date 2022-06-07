@@ -11,11 +11,13 @@ func TestValidateNetworkPeering(t *testing.T) {
 
 	// Generate a random ID to prevent a naming conflict
 	uniqueID := random.UniqueId()
+	testREF := "NetworkPeering"
+	serviceDeployment := testREF + "-" + uniqueID
 
 	// Define variables
 	locations := []string{"UK South"}
 
-	// Plan module
+	// Validate module
 	// Enable retryable error
 	terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
 
@@ -24,7 +26,7 @@ func TestValidateNetworkPeering(t *testing.T) {
 
 		// Variables to pass to the Terraform code using -var options
 		Vars: map[string]interface{}{
-			"service_deployment": uniqueID,
+			"service_deployment": serviceDeployment,
 			"service_location":   locations,
 		},
 	})
