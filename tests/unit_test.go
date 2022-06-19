@@ -3,7 +3,6 @@ package test
 import (
 	"testing"
 
-	"github.com/gruntwork-io/terratest/modules/random"
 	"github.com/gruntwork-io/terratest/modules/terraform"
 )
 
