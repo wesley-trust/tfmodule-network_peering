@@ -25,10 +25,10 @@ func TestValidateNetworkPeering(t *testing.T) {
 		TerraformDir: "../examples/",
 
 		// Variables to pass to the Terraform code using -var options
-		Vars: map[string]interface{}{
+/* 		Vars: map[string]interface{}{
 			"resource_network_peer_deployment": serviceDeployment,
 			"service_location":                 locations,
-		},
+		}, */
 	})
 
 	// Run `terraform init` and `terraform validate`. Fail the test if there are any errors.
