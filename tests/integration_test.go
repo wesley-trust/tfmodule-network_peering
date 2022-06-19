@@ -8,7 +8,6 @@ import (
 )
 
 func TestApplyNetworkPeering_Local(t *testing.T) {
-	// Do not run tests in parallel, to correctly test local and global peering
 	//t.Parallel()
 
 	// Generate a random ID to prevent a naming conflict
@@ -67,12 +66,11 @@ func TestApplyNetworkPeering_Local(t *testing.T) {
 }
 
 func TestApplyNetworkPeering_Local_Global(t *testing.T) {
-	// Do not run tests in parallel, to correctly test local and global peering
 	//t.Parallel()
 
 	// Generate a random ID to prevent a naming conflict
 	uniqueID := random.UniqueId()
-	testREF := "NetworkPeering_Global"
+	testREF := "NetworkPeering_Local_Global"
 	serviceDeployment := testREF + "-" + uniqueID
 
 	// Define variables
