@@ -9,26 +9,12 @@ import (
 
 func TestValidateNetworkPeering(t *testing.T) {
 
-	// Generate a random ID to prevent a naming conflict
-	uniqueID := random.UniqueId()
-	testREF := "NetworkPeering"
-	serviceDeployment := testREF + "-" + uniqueID
-
-	// Define variables
-	locations := []string{"UK South"}
-
 	// Validate module
 	// Enable retryable error
 	terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
 
 		// The path to where the Terraform code is located
 		TerraformDir: "../examples/",
-
-		// Variables to pass to the Terraform code using -var options
-/* 		Vars: map[string]interface{}{
-			"resource_network_peer_deployment": serviceDeployment,
-			"service_location":                 locations,
-		}, */
 	})
 
 	// Run `terraform init` and `terraform validate`. Fail the test if there are any errors.
