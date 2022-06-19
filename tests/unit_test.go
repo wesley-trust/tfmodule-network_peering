@@ -7,7 +7,7 @@ import (
 	"github.com/gruntwork-io/terratest/modules/terraform"
 )
 
-func TestValidateNetworkPeering(t *testing.T) {
+func TestPlanNetworkPeering(t *testing.T) {
 
 	// Generate a random ID to prevent a naming conflict
 	uniqueID := random.UniqueId()
@@ -26,13 +26,13 @@ func TestValidateNetworkPeering(t *testing.T) {
 
 		// Variables to pass to the Terraform code using -var options
 		Vars: map[string]interface{}{
-			"service_deployment": serviceDeployment,
-			"service_location":   locations,
+			"resource_network_peer_deployment": serviceDeployment,
+			"service_location":                 locations,
 		},
 	})
 
-	// Run `terraform init` and `terraform validate`. Fail the test if there are any errors.
-	terraform.InitAndValidate(t, terraformOptions)
+	// Run `terraform init` and `terraform plan`. Fail the test if there are any errors.
+	terraform.InitAndPlan(t, terraformOptions)
 }
 
 /* func TestPlanNetworkPeering_ApplyDependencies(t *testing.T) {

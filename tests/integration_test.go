@@ -13,6 +13,8 @@ func TestApplyNetworkPeering_Local(t *testing.T) {
 
 	// Generate a random ID to prevent a naming conflict
 	uniqueID := random.UniqueId()
+	testREF := "NetworkPeering_Local"
+	serviceDeployment := testREF + "-" + uniqueID
 
 	// Define variables
 	locations := []string{"UK South"}
@@ -26,7 +28,7 @@ func TestApplyNetworkPeering_Local(t *testing.T) {
 
 		// Variables to pass to the Terraform code using -var options
 		Vars: map[string]interface{}{
-			"service_deployment": uniqueID,
+			"service_deployment": serviceDeployment,
 			"service_location":   locations,
 		},
 	})
@@ -49,8 +51,8 @@ func TestApplyNetworkPeering_Local(t *testing.T) {
 
 		// Variables to pass to the Terraform code using -var options
 		Vars: map[string]interface{}{
-			"service_deployment": uniqueID,
-			"service_location":   locations,
+			"resource_network_peer_deployment": serviceDeployment,
+			"service_location":                 locations,
 		},
 	})
 
@@ -70,6 +72,8 @@ func TestApplyNetworkPeering_Local_Global(t *testing.T) {
 
 	// Generate a random ID to prevent a naming conflict
 	uniqueID := random.UniqueId()
+	testREF := "NetworkPeering_Global"
+	serviceDeployment := testREF + "-" + uniqueID
 
 	// Define variables
 	locations := []string{"UK South", "North Central US"}
@@ -83,7 +87,7 @@ func TestApplyNetworkPeering_Local_Global(t *testing.T) {
 
 		// Variables to pass to the Terraform code using -var options
 		Vars: map[string]interface{}{
-			"service_deployment": uniqueID,
+			"service_deployment": serviceDeployment,
 			"service_location":   locations,
 		},
 	})
@@ -106,8 +110,8 @@ func TestApplyNetworkPeering_Local_Global(t *testing.T) {
 
 		// Variables to pass to the Terraform code using -var options
 		Vars: map[string]interface{}{
-			"service_deployment": uniqueID,
-			"service_location":   locations,
+			"resource_network_peer_deployment": serviceDeployment,
+			"service_location":                 locations,
 		},
 	})
 

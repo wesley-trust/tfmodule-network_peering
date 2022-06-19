@@ -16,8 +16,8 @@ variable "service_location" {
   type        = list(string)
 }
 
-variable "service_deployment" {
-  description = "Desired deployment identifier of the service collection of provisioned resources"
+variable "resource_network_peer_deployment" {
+  description = "Deployment identifier for the resource network to peer"
   type        = string
 }
 

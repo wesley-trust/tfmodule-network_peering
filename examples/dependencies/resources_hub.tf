@@ -15,6 +15,7 @@ module "service_network_hub" {
   resource_location       = module.resource_group_hub[each.value].location
   resource_group_name     = module.resource_group_hub[each.value].name
   resource_environment    = var.service_environment
+  resource_deployment     = var.service_deployment
   resource_address_space  = lookup(lookup(var.resource_address_space, "Hub", null), each.value, null)
   resource_network_role   = "hub"
 }
