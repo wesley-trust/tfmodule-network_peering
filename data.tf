@@ -5,5 +5,6 @@ data "azurerm_resources" "virtual_network_spokes" {
   required_tags = {
     environment = var.service_environment
     role        = var.resource_network_peer_role
+    deployment  = var.resource_network_peer_deployment
   }
 }
