@@ -8,7 +8,7 @@ import (
 )
 
 func TestApplyNetworkPeering_Local(t *testing.T) {
-	t.Parallel()
+	//t.Parallel()
 
 	// Generate a random ID to prevent a naming conflict
 	uniqueID := random.UniqueId()
@@ -66,7 +66,7 @@ func TestApplyNetworkPeering_Local(t *testing.T) {
 }
 
 func TestApplyNetworkPeering_Local_Global(t *testing.T) {
-	t.Parallel()
+	//t.Parallel()
 
 	// Generate a random ID to prevent a naming conflict
 	uniqueID := random.UniqueId()
