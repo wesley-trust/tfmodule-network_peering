@@ -27,11 +27,11 @@ resources:
     trigger:    
       stages:
       - Regression
-  - pipeline: 'Resource Group'  
-    source: tfmodule-resource_group
-    trigger:    
-      stages:
-      - Regression
+  #- pipeline: 'Resource Group'  
+  #  source: tfmodule-resource_group
+  #  trigger:    
+  #    stages:
+  #    - Regression
       
 extends:
   template: ./Shared/azure-pipelines.yml
